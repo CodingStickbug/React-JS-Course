@@ -17,3 +17,8 @@ code {
   color: black;
   background-color: green;
 }
+
+.appbar {
+  height: 50;
+  color: rgb(58, 50, 50);
+}
