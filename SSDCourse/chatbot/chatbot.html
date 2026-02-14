@@ -13,13 +13,70 @@
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
 
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function ChatInput() {
+      function ChatInput({ setChatMessages, chatMessages }) {
+        const [inputText, setInputText] = React.useState("");
+        const [loading, setLoading] = React.useState(false);
+        function SaveInputText(event) {
+          setInputText(event.target.value);
+        }
+
+        async function SendMessage() {
+          if (loading || inputText === "") {
+            return;
+          } else {
+            setLoading(true);
+            const newChatMessages = [
+              ...chatMessages,
+              {
+                message: inputText,
+                sender: "user",
+                id: crypto.randomUUID(),
+              },
+            ];
+            setChatMessages(newChatMessages);
+            setInputText("");
+
+            setChatMessages([
+              ...newChatMessages,
+              {
+                message: "Loading...",
+                sender: "clanker",
+                id: crypto.randomUUID(),
+              },
+            ]);
+            const response = await Chatbot.getResponseAsync(inputText);
+            setChatMessages([
+              ...newChatMessages,
+              {
+                message: response,
+                sender: "clanker",
+                id: crypto.randomUUID(),
+              },
+            ]);
+          }
+          setLoading(false);
+        }
+        function InputSubmitted(events) {
+          if (events.key == "Enter" && !loading) {
+            SendMessage();
+          } else if (events.key == "Escape") {
+            setInputText("");
+          }
+        }
         return (
           <>
-            <input placeholder="Message a Clanker" size="30" />
-            <button>Send</button>
+            <input
+              onKeyDown={InputSubmitted}
+              value={inputText}
+              placeholder="Message a Clanker"
+              size="30"
+              onChange={SaveInputText}
+            />
+            <button onClick={SendMessage}>Send</button>
           </>
         );
       }
@@ -47,17 +104,49 @@
         );*/
       }
 
+      function ChatMessages({ chatMessages }) {
+        //  const [chatMessages, setChatMessages] = array;
+        return chatMessages.map((message) => {
+          return (
+            <ChatMessage
+              message={message.message}
+              sender={message.sender}
+              key={message.id}
+            />
+          );
+        });
+      }
+
       function App() {
+        const [chatMessages, setChatMessages] = React.useState([
+          {
+            message: "Hello CLANKER",
+            sender: "user",
+            id: 1,
+          },
+          {
+            message: "Hello Human, I plan to enslave you!",
+            sender: "clanker",
+            id: 2,
+          },
+          {
+            message: "I KNEW IT :O",
+            sender: "user",
+            id: 3,
+          },
+          {
+            message: "hehehehehe :D",
+            sender: "clanker",
+            id: 4,
+          },
+        ]);
         return (
           <>
-            <ChatInput />
-            <ChatMessage message="Hello CLANKER" sender="user" />
-            <ChatMessage
-              message="Hello Human, I plan to enslave you!"
-              sender="clanker"
+            <ChatInput
+              chatMessages={chatMessages}
+              setChatMessages={setChatMessages}
             />
-            <ChatMessage message="I KNEW IT :O" sender="user" />
-            <ChatMessage message="hehehhehe :D" sender="clanker" />
+            <ChatMessages chatMessages={chatMessages} />
           </>
         );
       }

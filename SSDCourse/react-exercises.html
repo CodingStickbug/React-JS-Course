@@ -15,53 +15,27 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function ProductDetails({ name, price, discountPrice }) {
-        return (
-          <>
-            {name === "Cotton Socks" && (
-              <img
-                src="https://supersimple.dev/images/cotton-socks.png"
-                width="50"
-              />
-            )}
-            {name === "Tennis Balls" && (
-              <img
-                src="https://supersimple.dev/images/tennis-balls.png"
-                width="50"
-              />
-            )}
-            {name === "T-Shirt" && (
-              <img
-                src="https://supersimple.dev/images/plain-t-shirt.png"
-                width="50"
-              />
-            )}
-            <p>{name}</p>
-            {discountPrice != null ? (
-              <del>
-                <p>Price: {price}</p>
-              </del>
-            ) : (
-              <p>Price: {price}</p>
-            )}
-            {discountPrice != null && <p>Discount Price: {discountPrice}</p>}
-            <div>
-              <button>Add to Cart</button>
-            </div>
-          </>
-        );
-      }
-
       function App() {
+        const [input, setInput] = React.useState("");
+        function InputChanged(events) {
+          setInput(events.target.value);
+        }
+        function ResetInput() {
+          setInput('')
+        }
+        function SetExample() {
+          setInput("Signore")
+        }
         return (
           <>
-            <ProductDetails
-              name="Cotton Socks"
-              price="$10.90"
-              discountPrice="$5.45"
+            <input
+              value={input}
+              onChange={InputChanged}
+              placeholder="Enter a name here"
             />
-            <ProductDetails name="Tennis Balls" price="$6.00" />
-            <ProductDetails name="T-Shirt" price="$7.99" />
+            <button onClick={ResetInput}>Reset</button>
+            <button onClick={SetExample}>Example</button>
+            <p>Hello {input}</p>
           </>
         );
       }
