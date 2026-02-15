@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: start;
+}
+.Text-Fields-Container {
+  text-align: start;
+}
+.login-button {
+  background-color: aqua;
+  color: black;
+  border-radius: 5px;
+  border: 0.5px solid grey;
+  padding: 5px 10px;
+}
+.login-button:hover {
+  background-color: aquamarine;
+}

@@ -1,0 +1,27 @@
+.user-container {
+  align-items: start;
+  display: flex;
+  justify-content: right;
+}
+.clanker-container {
+  align-items: start;
+  display: flex;
+}
+.message-text-box {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  background-color: rgba(202, 140, 25, 0.223);
+  padding: 10px 10px;
+  border-radius: 5px;
+  max-width: 300px;
+}
+.profile-image {
+  object-fit: cover;
+  width: 45px;
+  border-radius: 25px;
+}
+
+.loading-spinner {
+  width: 20px;
+}

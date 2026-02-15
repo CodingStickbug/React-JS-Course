@@ -1,0 +1,13 @@
+.main-app {
+  height: 100vh;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+.welcome-text {
+  margin: 10px;
+  text-align: center;
+  color: grey;
+}
