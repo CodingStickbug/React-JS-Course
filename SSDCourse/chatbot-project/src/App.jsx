@@ -1,16 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Chatbot } from "supersimpledev";
 import { ChatInput } from "./componants/ChatInput";
 import ChatMessages from "./componants/ChatMessages";
 import "./App.css";
 
 function App() {
+  const messagesRef = useRef(null);
   const inputAbove = false;
-  const [chatMessages, setChatMessages] = useState([]);
+  const [chatMessages, setChatMessages] = useState(
+    JSON.parse(localStorage.getItem("messages")) || [],
+  );
+
   useEffect(() => {
-    console.log("Executed");
     Chatbot.addResponses({ Clanker: "That's mean!" });
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("messages", JSON.stringify(chatMessages));
+  }, chatMessages);
+
   return (
     <div className="main-app">
       {inputAbove && (
@@ -24,7 +32,7 @@ function App() {
           Welcome to the Chat-Bot project! Send a message to get started
         </div>
       )}
-      <ChatMessages chatMessages={chatMessages} />
+      <ChatMessages chatMessages={chatMessages} ref={messagesRef} />
       {!inputAbove && (
         <ChatInput
           chatMessages={chatMessages}

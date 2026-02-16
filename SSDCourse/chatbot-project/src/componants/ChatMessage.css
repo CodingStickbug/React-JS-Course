@@ -25,3 +25,7 @@
 .loading-spinner {
   width: 20px;
 }
+.message-subtitle {
+  font-size: 15px;
+  color: grey;
+}

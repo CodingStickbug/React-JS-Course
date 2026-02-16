@@ -24,6 +24,7 @@ function ChatMessages({ chatMessages }) {
             message={message.message}
             sender={message.sender}
             key={message.id}
+            sent_at={message.sent_at}
           />
         );
       })}{" "}
