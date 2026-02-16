@@ -1,9 +1,16 @@
 import { AppBar } from "../components/AppBar";
 import "./HomePage.css";
+import checkmarkImage from "../assets/images/icons/checkmark.png";
 export function HomePage() {
   return (
     <>
       <AppBar />
+      <link
+        rel="icon"
+        type="image/svg+xml"
+        href="https://supersimple.dev/images/home-favicon.png"
+      />
+
       <div className="home-page">
         <div className="products-grid">
           <div className="product-container">
@@ -46,7 +53,7 @@ export function HomePage() {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src={checkmarkImage} />
               Added
             </div>
 
@@ -95,7 +102,7 @@ export function HomePage() {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src={checkmarkImage} />
               Added
             </div>
 
@@ -144,7 +151,7 @@ export function HomePage() {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src={checkmarkImage} />
               Added
             </div>
 

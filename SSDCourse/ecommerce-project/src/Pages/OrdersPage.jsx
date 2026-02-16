@@ -1,9 +1,17 @@
+import { Link } from "react-router";
 import { AppBar } from "../components/AppBar";
 import "./OrdersPage.css";
+import buyAgainImage from "../assets/images/icons/buy-again.png"
 export function OrdersPage() {
   return (
     <>
       <AppBar />
+      <title>Orders</title>
+      <link
+        rel="icon"
+        type="image/svg+xml"
+        href="https://supersimple.dev/images/orders-favicon.png"
+      />
 
       <div class="orders-page">
         <div class="page-title">Your Orders</div>
@@ -42,18 +50,18 @@ export function OrdersPage() {
                 <button class="buy-again-button button-primary">
                   <img
                     class="buy-again-icon"
-                    src="images/icons/buy-again.png"
+                    src={buyAgainImage}
                   />
                   <span class="buy-again-message">Add to Cart</span>
                 </button>
               </div>
 
               <div class="product-actions">
-                <a href="/tracking">
+                <Link to="/tracking">
                   <button class="track-package-button button-secondary">
                     Track package
                   </button>
-                </a>
+                </Link>
               </div>
 
               <div class="product-image-container">
@@ -69,18 +77,18 @@ export function OrdersPage() {
                 <button class="buy-again-button button-primary">
                   <img
                     class="buy-again-icon"
-                    src="images/icons/buy-again.png"
+                    src={buyAgainImage}
                   />
                   <span class="buy-again-message">Add to Cart</span>
                 </button>
               </div>
 
               <div class="product-actions">
-                <a href="/tracking">
+                <Link to="/tracking">
                   <button class="track-package-button button-secondary">
                     Track package
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -116,18 +124,18 @@ export function OrdersPage() {
                 <button class="buy-again-button button-primary">
                   <img
                     class="buy-again-icon"
-                    src="images/icons/buy-again.png"
+                    src={buyAgainImage}
                   />
                   <span class="buy-again-message">Add to Cart</span>
                 </button>
               </div>
 
               <div class="product-actions">
-                <a href="/tracking">
+                <Link to="/tracking">
                   <button class="track-package-button button-secondary">
                     Track package
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
