@@ -6,8 +6,8 @@ export function OmniChat() {
     <div className="main-content">
       <div className="chats-section">
         <div className="chats-header">
-          <h1>Chats</h1>
-          <input />
+          <h1 className="text-2xl font-bold">Chats</h1>
+          <input placeholder="Search" className="border-black border px-2" />
           <button>+</button>
         </div>
         <Chats />
@@ -21,7 +21,7 @@ export function OmniChat() {
           </button>
         </div>
         <div className="conversation-body">
-            <Messages />
+          <Messages />
           <div className="conversation-input-section">
             <input placeholder="your message here" />
             <button>{"-->"}</button>
