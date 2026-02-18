@@ -1,0 +1,87 @@
+.main-content {
+  display: flex;
+}
+
+.chats-section {
+  width: 30vw;
+  height: 100vh;
+  display: inline-block;
+  border-right: 1px solid black;
+}
+.chats-section h1 {
+  display: inline-block;
+  margin: 0px;
+}
+
+.chats-header {
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: 100px 1fr 50px;
+  margin-bottom: 15px;
+}
+.chats-header input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.chats-header button {
+  margin: 5px;
+  color: black;
+  background-color: orange;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.conversation-section {
+  width: 70vw;
+}
+.conversation-header {
+  border-bottom: 1px solid black;
+  display: grid;
+  height: 65px;
+  grid-template-columns: 100px 1fr 50px;
+  align-items: center;
+}
+.conversation-header img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  margin-left: 15px;
+  object-fit: cover;
+}
+.conversation-header h1 {
+  margin: 0px;
+}
+.conversation-header button {
+  height: 50px;
+  border-radius: 50px;
+}
+
+.conversation-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  height: calc(100% - 66px);
+}
+.conversation-input-section {
+  display: grid;
+  grid-template-columns: 1fr 75px;
+}
+.conversation-input-section button {
+  margin: 10px;
+  background-color: orange;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+.conversation-input-section input {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.conversation-input-section input:focus {
+  border: none;
+}

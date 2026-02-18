@@ -1,0 +1,51 @@
+.user-message-tile {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+}
+.user-message-header {
+  margin-right: 50px;
+  font-weight: 600;
+}
+
+.user-message-container {
+  display: grid;
+  grid-template-columns: 1fr 45px;
+}
+.message-content {
+  background-color: rgb(219, 204, 184);
+  border-radius: 5px;
+  padding: 5px 5px;
+}
+.message-content {
+    margin: 5px;
+  max-width: 55vw;
+}
+.message-content p {
+  word-wrap: break-word;
+  margin: 0;
+}
+.sender-pfp img {
+  width: 100%;
+  height: 45px;
+
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.message-header {
+  margin-left: 50px;
+  font-weight: 600;
+}
+.message-tile {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.message-container {
+  display: grid;
+  grid-template-columns: 45px 1fr;
+}
